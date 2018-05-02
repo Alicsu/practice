@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TodoList</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="inputValue" />
+		<button @click="handleBtnClick">提交</button>
+		<ul>
+			<!-- <li v-for="item of list">{{item}}</li> -->
+			<todo-item v-bind:content="item" v-for="item of list"></todo-item>
+		</ul>
+	</div>
+	<script>
+		// 组件命名过程中，如果采用驼峰命名，则组件名需要用短线隔开，若采用字符串模板命名的话，则直接使用
+		Vue.component("todoItem",{
+			props:['content'],
+			template:"<li>{{content}}</li>"
+		})
+		var app = new Vue({
+			el:"#app",
+			data:{
+				list:[],
+				inputValue:""
+			},
+			methods:{
+				handleBtnClick:function(){
+					this.list.push(this.inputValue)
+					this.inputValue = ""
+				}
+			}
+		})
+	</script>
+</body>
+</html>
