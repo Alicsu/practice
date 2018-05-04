@@ -1,4 +1,4 @@
-<!-- 实现点击添加删除功能 -->
+<!-- 理解vue中父子组件传值问题 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +17,7 @@
 	</div>
 	<script>
 		//单向数据流，即子组件不能改变父组件传过来的值
+		//子组件中的data属性必须是函数形式存在
 		var counter = {
 			props:['count'],
 			data:function(){
