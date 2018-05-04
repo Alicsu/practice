@@ -1,0 +1,52 @@
+<!-- 实现点击添加删除功能 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>非父子组件间的传值（Bus/总线/发布订阅模式/观察者模式）</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<!-- 实现的功能，是当点击一个元素时，另一个兄弟元素的值也会变成该点击元素的值 -->
+	<div id="app">
+	  <child content="Dell"></child>
+	  <child content="Lee"></child>
+	</div>
+	<script>
+		/* 给Vue的prototype上挂载一个bus属性，该属性指向Vue的实例，当我们调用new Vue或者创建组件时，每个组件上都会有bus属性 */
+		Vue.prototype.bus = new Vue()
+
+		Vue.component('child', {
+		  props: {
+		    content: String
+		  },
+		  /* child组件的content是从父组件接收过来的，而在vue中有单向数据流，子组件不能改变父组件传递过来的内容，此时定义data，将content内容作拷贝，在子组件中使用拷贝后的内容 */
+		  data: function() {
+		    return {
+		      selfContent: this.content
+		    }
+		  },
+		  /* 当每一个子组件被点击时，另一个子组件的值也会跟着改变自己的内容，此时子组件定义一个点击事件 */
+		  template: '<div @click="handleClick">{{selfContent}}</div>',
+		  methods: {
+		    handleClick: function() {
+		    /* 通过该实例上挂载的bus属性调用$emit方法来触发事件，该事件触发时携带的内容即为本身的内容 */
+		      this.bus.$emit('change', this.selfContent)
+		    }
+		  },
+		  /* 当该组件触发事件，其他的组件需要监听，通过添加生命钩子函数来监听bus的改变，当监听到事件时，就会去后面的调用函数 */
+		  mounted: function() {
+		 /*  this的作用域发生了变化，需要重新将this进行保存 */
+		    var this_ = this
+		    this.bus.$on('change', function(msg) {
+		      this_.selfContent = msg
+		    })
+		  }
+		})
+
+		var vm = new Vue({
+		  el: "#app"
+		})
+	</script>
+</body>
+</html>
