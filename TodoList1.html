@@ -1,0 +1,65 @@
+<!-- 实现点击添加删除功能 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TodoList1</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="inputValue" />
+		<button @click="handleBtnClick">提交</button>
+		<ul>
+			<!-- 父组件通过v-bind的方式向子组件传值 -->
+			<todo-item 
+			v-bind:content="item"
+			v-bind:index="index" 
+			v-for="(item,index) of list"
+			:key="index"
+			@delete="handleItemDelete"
+			>
+			</todo-item>
+		</ul>
+	</div>
+	<script>
+		// 定义子组件
+		var TodoItem = {
+			// 父组件向子组件传值，子组件必须接收，两个接收参数
+			props:['content','index'],
+			// 模板
+			template:"<li @click='handleItemClick'>{{content}}</li>",
+			// 点击内容时会触发delete事件
+			methods:{
+				handleItemClick:function(){
+					// 通过$emit方式，子组件事件触发，父组件监听，获取到子组件带出的内容，实现子组件向父组件传值
+					this.$emit("delete",this.index);
+				}
+			}
+
+		}
+		var app = new Vue({
+			el:"#app",
+			// 注册子组件
+			components:{
+				TodoItem:TodoItem
+			},
+			data:{
+				list:[],
+				inputValue:""
+
+			},
+			methods:{
+				handleBtnClick:function(){
+					this.list.push(this.inputValue)
+					this.inputValue = ""
+				},
+				handleItemDelete:function(index){
+					this.list.splice(index,1)
+
+				}
+			}
+		})
+	</script>
+</body>
+</html>
