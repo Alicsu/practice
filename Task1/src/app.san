@@ -1,5 +1,20 @@
 <template>
-    <div class="hello">hello {{msg}}</div>
+    <div>
+        <div>
+            <input type="text" value="姓名（string）" class="header" />
+            <input type="text" value="年龄（number）" class="header"/>
+            <input type="text" value="简介（string）" class="header" />
+        </div>
+        <div class="info">
+            <span>信息：</span>
+            <button>移除信息</button>
+        </div>
+        <div>
+            <div class="basic name">姓名：<span class="underLine"></span></div>
+            <div class="basic age" class="underLine">年龄：</div>
+            <div class="basic des" class="underLine">简介：</div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -12,8 +27,26 @@
     }
 </script>
 
-<style>
-    .hello {
-        color: blue;
+<style scoped>
+    .header {
+        width: 150px;
+        height: 40px;
+        border: 1px solid gray;
+        color: #CDAF95;
+        text-align: center;
+        margin-right: 10px;
+        font-size: 18px;
+    }
+    .info {
+        height: 40px;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+        button {
+           border-radius: 0.5px;
+        }
+    .basic {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 </style>
