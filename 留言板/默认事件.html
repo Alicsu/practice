@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script> 
+	<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script>
+		window.onload = function(){
+			var box = new Vue({
+				el: "#box",
+				data: {
+
+				},
+				methods: {
+                    btnClick: function(ev){
+                    	alert(1);
+                    	ev.preventDefault();
+                    },
+                    
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<!-- 默认事件，右键点击弹出警告框，若想阻止默认事件发生，使用.preventDefault，第二种方式即为vue自定义的.prevent，即不用传入$event事件即可阻止默认事件 -->
+	<div id="box">
+		<input type="button" value="按钮" @contextmenu="btnClick($event)"/>
+	</div>
+</body>
+</html>
