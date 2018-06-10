@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script> 
+	<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script>
+		window.onload = function(){
+			var box = new Vue({
+				el: "#box",
+				data: {
+
+				},
+				methods: {
+                    btnClick: function(ev){
+                    	alert(1);
+                    },
+                    
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<!-- @keydown、@keyup、@keyup.enter、@keyup.up（上）、@keyup.down（下）、@keyup.left（左）、@keyup.right（右） 分别表示按键时触发事件的方式-->
+	<div id="box">
+		<input type="text" @keyup.up="btnClick($event)">
+	</div>
+</body>
+</html>
