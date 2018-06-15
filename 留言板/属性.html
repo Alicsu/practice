@@ -12,7 +12,10 @@
 			var box = new Vue({
 				el: "#box",
 				data: {
-					url: "https://www.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8B&tn=SE_Pclogo_6ysd4c7a&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pc"
+					// url: "http://www.baidu.com/img/dong_ffc8c3961fc553a629bf3fc8dd7bdb1d.gif",
+					// w:'200px'
+					c: {color:'red'},
+					b: {backgroundColor: 'blue'}
 
 				},
 				methods: {
@@ -21,11 +24,20 @@
 			})
 		}
 	</script>
+	<style>
+		.red {
+			color: red;
+		}
+		.blue {
+			background-color: blue;
+		}
+	</style>
 </head>
 <body>
-
+<!-- class和style属性 -->
 	<div id="box">
-		<img src="{{url}}" alt="">
+		<!-- <img :src="url" alt="" :width="w"> -->
+		<strong :style="[c,b]">文字...</strong>
 	</div>
 </body>
 </html>
