@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/vue-resource/1.5.0/vue-resource.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script>
+		window.onload = function(){
+			const Http = new Vue
+			var box = new Vue({
+				el:"#box",
+				data: {
+
+				},
+				methods: {
+					get:function(){
+						let url = "./a.txt";
+						Http.$http.get(url).then(function(res){
+                                alert(res.data);
+						}, function(res){
+                                alert(res.status);
+						});
+					}
+				}
+
+			});
+		};
+	</script>
+</head>
+<body>
+<!-- class和style属性 -->
+	<div id="box">
+		<input type="button" value="按钮" @click="get()">
+	</div>
+</body>
+</html>

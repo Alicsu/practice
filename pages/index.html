@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/setHomeSetFav.js" charset="gb2312"></script>
+	<script src="js/myfocus-2.0.1.min.js"></script>
+	<script src="js/mf-pattern/mF_YSlider.js"></script>
+	<link rel="stylesheet" href="js/mf-pattern/mF_YSlider.css" />
+	<script>
+		myFocus.set({
+			id:"picBox"
+		})
+	</script>
+	<style>
+	    * {
+	    	margin: 0;
+	    	padding: 0;
+	    	font-size: 12px;
+	    }
+	    body{
+	    	background: #f5f5f5;
+	    }
+	    .top{
+	    	width: 100%;
+	    	height: 27px;
+	    	background: url("images/top_bg.jpg") repeat-x;
+	    }
+	    .top_content{
+	    	width: 1000px;
+	    	margin: 0 auto;
+	    }
+	    .top_content li{
+	    	list-style-image: url("images/li_bg.gif");
+	    	float: right;
+	    	width: 70px;
+	    	line-height: 27px;
+	    }
+	    .top_content a:link, .top_content a:visited {
+	    	color: #8e8e8e;
+	    	text-decoration: none;
+	    }
+	    .top_content a:hover, .top_content a:active {
+	    	color: #900;
+	    	text-decoration: none;
+	    }
+
+	    .wrap {
+	    	width: 1000px;
+	    	margin: 0 auto;
+	    }
+	    .logo {
+	    	height: 80px;
+	    	background: #fff;
+	    }
+	    .logo_left {
+	    	width: 200px;
+	    	float: left;
+	    }
+	    .logo_right {
+	    	width: 300px;
+	    	float: right;
+	    	height: 28px;
+	    	margin-top: 30px;
+	    	color: #8e8e8e;
+	    }
+	    .logo_right img{
+	    	vertical-align: middle;
+	    	margin-right: 10px;
+	    }
+	    .tel{
+	    	font-family: "微软雅黑";
+	    	font-size: 16px;
+	    	color: #c00;
+	    }
+
+	    .nav{
+	    	height: 40px;
+	    	float: left;
+	    }
+	    .nav_left{
+	    	width: 10px;
+	    	background: url("images/nav_left.jpg") no-repeat;
+	    }
+	    .nav_mid{
+	    	width: 980px;
+	    	background: url("images/nav_bg.jpg") repeat-x;
+	    }
+	    .nav_right{
+	    	width: 10px;
+	    	background: url("images/nav_right.jpg") no-repeat;
+	    }
+	    .nav_mid,.nav_left,.nav_right{
+	    	float: left;
+	    	height: 40px;
+	    }
+	    .nav_mid_left,.nav_mid_right{
+	    	float: left;
+	    }
+	    .nav_mid_left{
+	    	width: 680px;
+	    }
+	    .nav_mid_right{
+	    	width: 300px;
+	    }
+	    .nav_mid_left li{
+	    	float: left;
+	    	list-style: none;
+	    	width: 100px;
+	    	text-align: center;
+	    	line-height: 40px;
+	    }
+	    .nav_mid_left a:link,.nav_mid_left a:visited{
+	    	text-decoration: none;
+	    	color: #fff;
+	    	font-size: 16px;
+	    	font-family: "微软雅黑";
+	    }
+	    .nav_mid_left a:hover,.nav_mid_left a:active{
+	    	text-decoration: none;
+	    	color: #ff0;
+	    	font-size: 16px;
+	    	font-family: "微软雅黑";
+	    }
+	    .search_text{
+	    	width: 190px;
+	    	height: 25px;
+	    	margin-top: 5px;
+	    	background: url("images/search.jpg") no-repeat right center;
+	    	background-color: #fff;
+	    	padding-right:25px;
+	    	border: 1px solid #fff;
+	    }
+	    .ad{
+	    	width: 1000px;
+	    	height: 310px;
+	    	overflow: hidden;
+	    }
+	</style>
+</head>
+<body>
+	<div class="top">
+		<div class="top_content">
+			<ul>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#" onclick="AddFavorite(window.location,document.title)">加入收藏</a></li>
+				<li><a href="#" onclick="SetHome(window.location)">设置首页</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- top结束 -->
+	<div class="wrap">
+		<div class="logo">
+			<div class="logo_left">
+				<img src="images/logo.jpg" alt="慕课网">
+			</div>
+			<div class="logo_right">
+				<img src="images/tel.jpg" alt="服务热线">
+				24小时服务热线：<span class="tel">123-456-7890</span>
+			</div>
+		</div><!--logo结束-->
+		<div class="nav">
+			<div class="nav_left"></div>
+			<div class="nav_mid">
+				<div class="nav_mid_left">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li><a href="list.html">关于慕课</a></li>
+						<li><a href="list.html">新闻动态</a></li>
+						<li><a href="list.html">课程中心</a></li>
+						<li><a href="list.html">在线课程</a></li>
+						<li><a href="list.html">人才招聘</a></li>
+					</ul>
+				</div>
+				<div class="nav_mid_right">
+					<form action="" method="post">
+						<input type="text" class="search_text" />
+					</form>
+				</div>
+			</div>
+			<div class="nav_right"></div>
+		</div><!--nav结束-->
+		<!-- 焦点图初始化的ID，与图片列表最外层的ID一致；
+		图片列表外面，包裹一个class为pic的div -->
+		<div class="ad" id="picBox">
+			<div class="loading"><img src="images/loading.gif" alt="图片加载中" /></div>
+			<div class="pic">
+				<ul>
+					<li><img src="images/ad2.jpg" alt=""></li>
+					<li><img src="images/ad3.jpg" alt=""></li>
+					<li><img src="images/ad4.jpg" alt=""></li>
+				</ul>
+		    </div>
+		</div>
+	</div><!--wrap结束-->
+</body>
+</html>

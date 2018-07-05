@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+	轮播图</title>
+	<style>
+		#loopDiv {
+			width: 500px;
+			height: 340px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#pic{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		#pic img{
+		}
+		#list {
+			list-style: none;
+			position: absolute;
+			bottom: 10px;
+			left: 200px;
+		}
+		#list li {
+			float: left;
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			background: #aaa;
+			margin-right: 10px;
+		}
+		.chooseBut {
+			width: 50px;
+			height: 80px;
+			background-color: rgb(0,0,0,0.2);
+			color: #fff;
+			font-size: 30px;
+			line-height: 80px;
+			text-align: center;
+			display: none;
+			z-index: 1;
+		}
+		#left{
+			position: absolute;
+			left: 0px;
+			top: 130px;
+		}
+		#right {
+			position: absolute;
+			right: 0;
+			top: 130px;
+		}
+	</style>
+</head>
+<body>
+	<div id="loopDiv">
+		<div id="pic">
+			<img src="img/0.jpg" alt="" style="z-index:0">
+			<img src="img/1.jpg" alt="" style="z-index:1">
+			<img src="img/2.jpg" alt="" style="z-index:2">
+			<img src="img/3.jpg" alt="" style="z-index:3">
+			<img src="img/4.jpg" alt="" style="z-index:4">
+			<img src="img/5.jpg" alt="" style="z-index:5">
+			<img src="img/6.jpg" alt="" style="z-index:6">
+			<img src="img/7.jpg" alt="" style="z-index:7">
+		</div>
+		<ul id="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+		</ul>
+		<div id="left" class="chooseBut"><</div>
+		<div id="right" class="chooseBut">></div>
+	</div>
+	<script>
+		var jsDivBox = document.getElementById("loopDiv");
+		//获取图片节点
+		var jsImg = document.getElementsByTagName("img");
+		var jsLeft = document.getElementById("left");
+		var jsRight = document.getElementById("right");
+		//获取所有li
+		var jsUl = document.getElementById("list");
+		var jsLis = jsUl.getElementsByTagName("li");
+		//第一个小圆点的颜色为红色
+		jsLis[0].style.backgroundColor = "red";
+		//显示当前的图片下标
+		var currentPage = 0;
+		//定时器
+		var timer = setInterval(func,1000);
+		function func(){
+			currentPage++;
+			changePic();
+		}
+		function changePic(){
+			if(currentPage == 8) {
+				currentPage = 0;
+			}
+			if(currentPage == -1){
+				currentPage = 7;
+			}
+			//更换图片
+			// jsImg.src = "img/"+currentPage+".jpg";
+			jsImg.style.z-index = currentPage;
+			//将所有的小圆点颜色清空
+			for(var i=0;i<jsLis.length;i++){
+				jsLis[i].style.backgroundColor="#aaa";
+			}
+			//改变对应小圆点为红色
+			jsLis[currentPage].style.backgroundColor = "red";
+		}
+		//鼠标进入
+		jsDivBox.addEventListener("mouseover",func1,false);
+		function func1(){
+			//停止定时器
+			clearInterval(timer);
+			//显示左右按钮
+			jsLeft.style.display = "block"
+			jsRight.style.display = "block";	
+		}
+		jsDivBox.addEventListener("mouseout",func2,false);
+		function func2(){
+			//重启定时器
+			timer = setInterval(func,1000);
+			//隐藏左右按钮
+			jsLeft.style.display = "none";
+			jsRight.style.display = "none";
+		}
+
+		//点击左右按钮
+		jsLeft.addEventListener("click",func3,false);
+		function func3(){
+			currentPage--;
+			changePic();
+		}
+		jsLeft.onmouseover = function(){
+			this.style.backgroundColor = "rgb(0,0,0,0.6)";
+		}
+		jsRight.onmouseout = function(){
+			this.style.backgroundColor = "rgb(0,0,0,0.2)";
+		}
+		jsRight.addEventListener("click",func4,false);
+		function func4(){
+			currentPage++;
+			changePic();
+		}
+		jsRight.onmouseover = function(){
+			this.style.backgroundColor = "rgb(0,0,0,0.6)";
+		}
+		jsRight.mouseout = function(){
+			this.style.backgroundColor = "rgb(0,0,0,0.2)";
+		}
+		//进入小圆点
+		for(var j = 0; j<jsLis.length;j++){
+			jsLis[j].ommouseover = function(){
+				currentPage = parseInt(this.innerHTML) - 1;
+			changePic();
+		    };
+		}
+	</script>
+</body>
+</html>
