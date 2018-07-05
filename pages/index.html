@@ -136,6 +136,84 @@
 	    	height: 310px;
 	    	overflow: hidden;
 	    }
+	    .main{
+	    	height: 250px;
+	    	background-color:#fff;
+	    	margin-top: 5px;
+	    }
+	    .news{
+	    	width: 340px;
+	    	border: 1px solid #e8e8e8;
+	    }
+	    .course{
+	    	width: 410px;
+	    	border: 1px solid #e8e8e8;
+	    	background-color: #ff6;
+	    	margin: 0 7px;
+	    }
+	    .sidebar{
+	    	width: 230px;
+	    	background-color: #09f;
+	    }
+	    .news,.course,.sidebar{
+	    	height: 250px;
+	    	float: left;
+	    }
+	    .title{
+	    	height: 35px;
+	    	border-bottom: 2px solid #e8e8e8;
+	    }
+	    .title_left{
+	    	font-family: "微软雅黑";
+	    	width: 70%;
+	    	font-size: 14px;
+	    	font-weight: bold;
+	    	color: #786f66;
+	    	float: left;
+	    	line-height: 35px;
+	    	padding-left: 20px;
+	    }
+	    .title_right{
+	    	width: 20%;
+	    	float: right;
+	    	line-height: 35px;
+	    	color: #999;
+	    }
+	    .pic_news{
+	    	height: 80px;
+	    	margin-top: 10px;
+	    	line-height: 22px;
+	    }
+	    .pic_news img{
+	    	float: left;
+	    	margin:0 5px;
+	    }
+	    .pic_news a{
+	    	color: #c00;
+	    	text-decoration: none;
+	    }
+	    .news_list{
+	    	margin-top: 20px;
+	    }
+	    .news_list li{
+	    	list-style-type: none;
+	    	background: url("images/list.jpg") no-repeat;
+	    	padding-left: 10px;
+	    	margin: 8px;
+	    	border-bottom: 1px dotted #ccc ;
+	    }
+	    .news_list a:link,.news_list a:visited{
+	    	text-decoration: none;
+	    	color: #000;
+	    }
+	    .news_list a:hover,.news_list a:active{
+	    	text-decoration: none;
+	    	color: #f00;
+	    }
+	    .news_list span{
+	    	color: #999;
+	    	float: right;
+	    }
 	</style>
 </head>
 <body>
@@ -191,6 +269,28 @@
 					<li><img src="images/ad4.jpg" alt=""></li>
 				</ul>
 		    </div>
+		</div>
+		<div class="main">
+			<div class="news">
+				<div class="title">
+					<h2 class="title_left">新闻中心</h2><a href="news.html"><span class="title_right">More&gt;&gt;</span></a>
+				</div><!--title结束-->
+				<div class="pic_news">
+					<img src="images/news.jpg" />
+					<h2><a href="news.html">520慕女神喊你来表白</a></h2>
+					<p>5月20-5月25日<br />
+					获奖公布时间：5月26日<br /><a href="news.html">Lear More&gt;&gt;</a></p>
+				</div><!--pic_news结束-->
+				<div class="news_list">
+					<ul>
+						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
+						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
+						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
+					</ul>
+				</div><!--news_list结束-->
+			</div><!--news结束-->
+			<div class="course"></div><!--course结束-->
+			<div class="sidebar"></div><!--sidebar结束-->
 		</div>
 	</div><!--wrap结束-->
 </body>
