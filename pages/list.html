@@ -4,14 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src="js/setHomeSetFav.js" charset="gb2312"></script>
-	<script src="js/myfocus-2.0.1.min.js"></script>
-	<script src="js/mf-pattern/mF_YSlider.js"></script>
-	<link rel="stylesheet" href="js/mf-pattern/mF_YSlider.css" />
-	<script>
-		myFocus.set({
-			id:"picBox"
-		})
-	</script>
+	
 	<style>
 	    * {
 	    	margin: 0;
@@ -246,6 +239,7 @@
 	    	height: 200px;
 	    	background: #e8e8e8;
 	    	margin-top: 10px;
+	    	clear: both;
 	    }
 	    .copyright_content{
 	    	width: 1000px;
@@ -268,6 +262,82 @@
 	    }
 	    .copyright_content li ul li a{
 	    	font-size: 14px;
+	    }
+	    .list_main{
+	    	min-height: 350px;
+	    	background-color: #fff;
+	    	margin-top: 10px;
+	    }
+	    .news_type{
+	    	width: 220px;
+	    	height: 350px;
+	    	border: 1px solid #e8e8e8;
+	    	/* background-color: #9fc; */
+	    	float: left;
+	    }
+	    .list_box{
+	    	width: 770px;
+	    	min-height: 350px;  /*IE6中没有min-height属性*/
+	    	_height: 350px;    /*IE6中CSS hacker*/
+	    	border: 1px solid #e8e8e8;
+	    	float: right;
+	    }
+	    .news_type h2{
+	    	height: 35px;
+	    	line-height: 35px;
+	    	font-size: 14px;
+	    	font-family: "微软雅黑";
+	    	color: #666;
+	    	background: url("images/titile_bg.gif") repeat-x;
+	    }
+	    .news_type_content{
+	    	height: 365px;
+	    	background: url("images/content_bg.gif") repeat-x;
+	    }
+	    .news_type_content li{
+	    	list-style-type: none;
+	    	height: 30px;
+	    	line-height: 30px;
+	    }
+	    .news_type_content li a{
+	    	color: #666;
+	    	text-decoration: none;
+	    	background: url("images/li_bg.gif") no-repeat left center;
+	    	padding-left: 15px;
+	    	display: block;
+	    }
+	    .news_type_content li a:hover{
+	    	color: #009cdf;
+	    	background: url("images/li_bg2.gif") no-repeat left center;
+	    	background-color: #f2f2f2;
+	    }
+	    .list_box h2{
+	    	font-size: 14px;
+	    	font-family: "微软雅黑";
+	    	color: #666;
+	    	height: 35px;
+	    	line-height: 35px;
+	    	background: url("images/type_bg.png") repeat-x;
+	    	padding-left: 20px;
+	    }
+	    .page{
+	    	height: 40px;
+	    	margin-top: 10px;
+	    	text-align: center;
+	    }
+	    .page a{
+	    	display: inline-block;
+	    	border: 1px solid #e8e8e8;
+	    	text-decoration: none;
+	    	margin: 5px;
+	    	padding: 5px 10px;
+	    }
+	    .page a:link,.page a:visited{
+	    	color: #000;
+	    }
+	    .page a:hover,.page a:active{
+	    	color: #fff;
+	    	background-color: #cc1b1b;
 	    }
 	</style>
 </head>
@@ -315,62 +385,44 @@
 		</div><!--nav结束-->
 		<!-- 焦点图初始化的ID，与图片列表最外层的ID一致；
 		图片列表外面，包裹一个class为pic的div -->
-		<div class="ad" id="picBox">
-			<div class="loading"><img src="images/loading.gif" alt="图片加载中" /></div>
-			<div class="pic">
-				<ul>
-					<li><img src="images/ad2.jpg" alt=""></li>
-					<li><img src="images/ad3.jpg" alt=""></li>
-					<li><img src="images/ad4.jpg" alt=""></li>
-				</ul>
-		    </div>
-		</div>
-		<div class="main">
-			<div class="news">
-				<div class="title">
-					<h2 class="title_left">新闻中心</h2><a href="news.html"><span class="title_right">More&gt;&gt;</span></a>
-				</div><!--title结束-->
-				<div class="pic_news">
-					<img src="images/news.jpg" />
-					<h2><a href="news.html">520慕女神喊你来表白</a></h2>
-					<p>5月20-5月25日<br />
-					获奖公布时间：5月26日<br /><a href="news.html">Lear More&gt;&gt;</a></p>
-				</div><!--pic_news结束-->
+		<div class="ad" id="picBox" style="height:243px;">
+			<img src="images/ad.jpg" />
+		</div><!--ad结束-->
+		<div class="list_main">
+			<div class="news_type">
+				<h2>新闻中心</h2>
+				<div class="news_type_content">
+					<ul>
+						<li><a href="list.html">公司新闻</a></li>
+						<li><a href="list.html">行业新闻</a></li>
+						<li><a href="list.html">媒体报道</a></li>
+						<li><a href="list.html">活动专题</a></li>
+						<li><a href="list.html">精彩视频</a></li>
+						<li><a href="list.html">资源下载</a></li>
+						<li><a href="list.html">公司内刊</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="list_box">
+				<h2>新闻中心</h2>
 				<div class="news_list">
 					<ul>
-						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
-						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
-						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
+						<li><span>2016-2-4</span><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a></li>
 					</ul>
 				</div><!--news_list结束-->
-			</div><!--news结束-->
-			<div class="course">
-				<div class="title">
-					<h2 class="title_left">课程中心</h2><a href="news.html"><span class="title_right">More&gt;&gt;</span></a>
-				</div><!--title结束-->
-				<div class="course_pic">
-					<img src="images/css.jpg" />
-					<h2><a href="news.html">CSS圆角进化论</a></h2>
-					<p>CSS圆角的实现，经历了三大发展阶段：背景图片方式、CSS2.0+HTML标签模拟、CSS3.0圆角属性。本案例详细的讲解每一种的实现方式，并对实现的优缺点进行对比分析。</p>
-				</div><!--course_pic结束-->
-				<div class="course_type">
-					<ul>
-						<li>PHP开发</li>
-						<li>Java开发</li>
-						<li>前端开发</li>
-						<li>Android开发</li>
-					</ul>
-				</div><!--course_type结束-->
-			</div><!--course结束-->
-			<div class="sidebar">
-				<div class="video">
-					<div class="title"><h2 class="title_left">媒体聚焦</h2></div>
-					<div class="video_content"><embed src='http://player.youku.com/player.php/sid/XMzY5MzA1ODc2MA==/v.swf' allowFullScreen='true' quality='high' width='220' height='140' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed></div>
-				</div><!--video结束-->
-				<div class="sidebar_ad">
-					<img src="images/app.jpg" />
-				</div><!--sidebar_ad结束-->
-			</div><!--sidebar结束-->
+				<div class="page">
+					<a href="#">首页</a><a href="#">&lt;</a><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">......</a><a href="#">&gt;</a><a href="#">末页</a>
+				</div>
+			</div>
 		</div>
 	</div><!--wrap结束-->
 	<div class="copyright">

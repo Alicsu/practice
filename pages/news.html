@@ -4,14 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src="js/setHomeSetFav.js" charset="gb2312"></script>
-	<script src="js/myfocus-2.0.1.min.js"></script>
-	<script src="js/mf-pattern/mF_YSlider.js"></script>
-	<link rel="stylesheet" href="js/mf-pattern/mF_YSlider.css" />
-	<script>
-		myFocus.set({
-			id:"picBox"
-		})
-	</script>
+	
 	<style>
 	    * {
 	    	margin: 0;
@@ -246,6 +239,7 @@
 	    	height: 200px;
 	    	background: #e8e8e8;
 	    	margin-top: 10px;
+	    	clear: both;
 	    }
 	    .copyright_content{
 	    	width: 1000px;
@@ -268,6 +262,100 @@
 	    }
 	    .copyright_content li ul li a{
 	    	font-size: 14px;
+	    }
+	    .list_main{
+	    	min-height: 350px;
+	    	background-color: #fff;
+	    	margin-top: 10px;
+	    }
+	    .news_type{
+	    	width: 220px;
+	    	height: 350px;
+	    	border: 1px solid #e8e8e8;
+	    	/* background-color: #9fc; */
+	    	float: left;
+	    }
+	    .list_box{
+	    	width: 770px;
+	    	min-height: 350px;  /*IE6中没有min-height属性*/
+	    	_height: 350px;    /*IE6中CSS hacker*/
+	    	border: 1px solid #e8e8e8;
+	    	float: right;
+	    	background-color: #fff;
+	    }
+	    .news_type h2{
+	    	height: 35px;
+	    	line-height: 35px;
+	    	font-size: 14px;
+	    	font-family: "微软雅黑";
+	    	color: #666;
+	    	background: url("images/titile_bg.gif") repeat-x;
+	    }
+	    .news_type_content{
+	    	height: 365px;
+	    	background: url("images/content_bg.gif") repeat-x;
+	    }
+	    .news_type_content li{
+	    	list-style-type: none;
+	    	height: 30px;
+	    	line-height: 30px;
+	    }
+	    .news_type_content li a{
+	    	color: #666;
+	    	text-decoration: none;
+	    	background: url("images/li_bg.gif") no-repeat left center;
+	    	padding-left: 15px;
+	    	display: block;
+	    }
+	    .news_type_content li a:hover{
+	    	color: #009cdf;
+	    	background: url("images/li_bg2.gif") no-repeat left center;
+	    	background-color: #f2f2f2;
+	    }
+	    .list_box h2{
+	    	font-size: 14px;
+	    	font-family: "微软雅黑";
+	    	color: #666;
+	    	height: 35px;
+	    	line-height: 35px;
+	    	background: url("images/type_bg.png") repeat-x;
+	    	padding-left: 20px;
+	    }
+	    .page{
+	    	height: 40px;
+	    	margin-top: 10px;
+	    	text-align: center;
+	    }
+	    .page a{
+	    	display: inline-block;
+	    	border: 1px solid #e8e8e8;
+	    	text-decoration: none;
+	    	margin: 5px;
+	    	padding: 5px 10px;
+	    }
+	    .page a:link,.page a:visited{
+	    	color: #000;
+	    }
+	    .page a:hover,.page a:active{
+	    	color: #fff;
+	    	background-color: #cc1b1b;
+	    }
+	    .list_box h1{
+	    	font-family: "微软雅黑";
+	    	font-size: 20px;
+	    	text-align: center;
+	    	margin: 10px 0;
+	    }
+	    .list_box_newsInfo{
+	    	color: #666;
+	    	text-align: center;
+	    	border-bottom: 1px dotted #666;
+	    }
+	    .list_box_newsContent{
+	    	font-size: 14px;
+	    	padding: 20px;
+	    	line-height: 25px;
+	    	text-indent: 2em;
 	    }
 	</style>
 </head>
@@ -315,62 +403,57 @@
 		</div><!--nav结束-->
 		<!-- 焦点图初始化的ID，与图片列表最外层的ID一致；
 		图片列表外面，包裹一个class为pic的div -->
-		<div class="ad" id="picBox">
-			<div class="loading"><img src="images/loading.gif" alt="图片加载中" /></div>
-			<div class="pic">
-				<ul>
-					<li><img src="images/ad2.jpg" alt=""></li>
-					<li><img src="images/ad3.jpg" alt=""></li>
-					<li><img src="images/ad4.jpg" alt=""></li>
-				</ul>
-		    </div>
-		</div>
-		<div class="main">
-			<div class="news">
-				<div class="title">
-					<h2 class="title_left">新闻中心</h2><a href="news.html"><span class="title_right">More&gt;&gt;</span></a>
-				</div><!--title结束-->
-				<div class="pic_news">
-					<img src="images/news.jpg" />
-					<h2><a href="news.html">520慕女神喊你来表白</a></h2>
-					<p>5月20-5月25日<br />
-					获奖公布时间：5月26日<br /><a href="news.html">Lear More&gt;&gt;</a></p>
-				</div><!--pic_news结束-->
-				<div class="news_list">
+		<div class="ad" id="picBox" style="height:243px;">
+			<img src="images/ad.jpg" />
+		</div><!--ad结束-->
+		<div class="list_main">
+			<div class="news_type">
+				<h2>新闻中心</h2>
+				<div class="news_type_content">
 					<ul>
-						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
-						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
-						<li><a href="news.html">【慕课访谈 用户篇】 “有为屌丝”在路上</a><span>2016-2-4</span></li>
+						<li><a href="list.html">公司新闻</a></li>
+						<li><a href="list.html">行业新闻</a></li>
+						<li><a href="list.html">媒体报道</a></li>
+						<li><a href="list.html">活动专题</a></li>
+						<li><a href="list.html">精彩视频</a></li>
+						<li><a href="list.html">资源下载</a></li>
+						<li><a href="list.html">公司内刊</a></li>
 					</ul>
-				</div><!--news_list结束-->
-			</div><!--news结束-->
-			<div class="course">
-				<div class="title">
-					<h2 class="title_left">课程中心</h2><a href="news.html"><span class="title_right">More&gt;&gt;</span></a>
-				</div><!--title结束-->
-				<div class="course_pic">
-					<img src="images/css.jpg" />
-					<h2><a href="news.html">CSS圆角进化论</a></h2>
-					<p>CSS圆角的实现，经历了三大发展阶段：背景图片方式、CSS2.0+HTML标签模拟、CSS3.0圆角属性。本案例详细的讲解每一种的实现方式，并对实现的优缺点进行对比分析。</p>
-				</div><!--course_pic结束-->
-				<div class="course_type">
-					<ul>
-						<li>PHP开发</li>
-						<li>Java开发</li>
-						<li>前端开发</li>
-						<li>Android开发</li>
-					</ul>
-				</div><!--course_type结束-->
-			</div><!--course结束-->
-			<div class="sidebar">
-				<div class="video">
-					<div class="title"><h2 class="title_left">媒体聚焦</h2></div>
-					<div class="video_content"><embed src='http://player.youku.com/player.php/sid/XMzY5MzA1ODc2MA==/v.swf' allowFullScreen='true' quality='high' width='220' height='140' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed></div>
-				</div><!--video结束-->
-				<div class="sidebar_ad">
-					<img src="images/app.jpg" />
-				</div><!--sidebar_ad结束-->
-			</div><!--sidebar结束-->
+				</div>
+			</div>
+			<div class="list_box">
+				<h2>新闻中心</h2>
+				<h1>【有奖活动】 给父亲的三行书信</h1>
+				<p class="list_box_newsInfo">发布人：Admin 发布时间：2016-2-4 浏览：3246次</p>
+				<div class="list_box_newsContent">
+					<p>父亲这个角色，一直给人的印象都是不善言辞、默默守护，为了你和这个家付出了很多很多。也许从前的你太过年少，说不出对父亲的肉麻感谢；
+						也许现在的你，已经为人父母，能切身体会的到父爱的伟大。
+					</p>
+					<p><strong>活动题目：</strong><u>给父亲大人的三行书信</u></p>
+					<p><strong>活动时间：</strong>6月6日&mdash;&mdash;6月16日(17号公布获奖名单)</p>
+					<p align="center"><img src="images/news1.jpg" width="500" height="336" /></p>
+					<p><strong>活动内容：</strong>活动内容结合时下流行的&ldquo;来给父亲表达感谢之情。具体内容弄不限，可以是诗歌、散文、代码文等等，只要你出其不意、真是的表达自己对父亲的感情都可参与其中。具体的恢复形式参考实例！</p>
+					<p><strong>示例格式参考如下：</strong></p>
+					<p>爹地，</p>
+					<p>儿在外已多日，</p>
+					<p>请汇钱！</p>
+					<p>&nbsp;</p>
+					<p><strong>奖励：</strong>父亲专属（邮寄给父亲的奖品）</p>
+					<p><strong>获奖名额：</strong>8名</p>
+					<p><strong>抽奖规则：</strong></p>
+					<p>最逗比奖：4名（zobo水烟壶）</p>
+					<p>最煽情奖：4名（奔腾剃须刀）</p>
+					<p>（注：不可照搬实例内容，否则视为无效回复）</p>
+					<p align="center"><img src="images/news2.jpg" width="500" height="452" alt="奖品展示" /></p>
+					<p><strong>活动规则：</strong></p>
+					<p>1、凡慕课网登录用户均可参加：</p>
+					<p>2、小伙伴提交格式需严格按照活动要求，任何违反版规的帖子都将按版规相关规定处理；</p>
+					<p>3、小伙伴们提交的内容不得违反相关道德、法律规定；</p>
+					<p>4、一个ID仅有一次中奖机会，不可重复中奖；</p>
+					<p>5、所有文字类书写错误的问题不计入有效的活动回帖范围；</p>
+					<p>(注：最终解释权归慕课网所有。)</p>
+				</div>
+			</div>
 		</div>
 	</div><!--wrap结束-->
 	<div class="copyright">
