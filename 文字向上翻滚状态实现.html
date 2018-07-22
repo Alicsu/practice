@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <style>
+      /* .inner-container { */
+          /* animation属性的一个简写属性，用于设置留个动画属性，animation-name,animation-duration,animation-timing-function,
+          animation-delay,animation-iteration-count,animation-direction
+           */
+           /* animation-fill-mode属性规定动画在播放之前或之后，其动画效果是否可见，none|forwards|backwards|both */
+          /* animation: myMove 5s linear infinite;
+          animation-fill-mode:forwards;
+      } */
+      /* 文字无缝滚动 */
+      /* @keyframes myMove {
+          0% {
+              transform: translateY(0);
+          }
+          100% {
+              transform: translateY(-150px);
+          }
+      } */
+      div,ul,li,span,img {
+          margin:0;
+          padding:0;
+          display:flex;
+          box-sizing:border-box;
+      }
+      .marquee {
+          width:100%;
+          height:50px;
+          align-items:center;
+          color:#3a3a3a;
+          background-color:aqua;
+          display:flex;
+          box-sizing:border-box;
+      }
+      .marquee_title {
+          padding:0 20px;
+          height:30px;
+          font-size:14px;
+          border-right:1px solid #d8d8d8;
+          align-items:center;
+      }
+      .marquee_box {
+          display:block;
+          position: relative;
+          width:68%;
+          height:30px;
+          overflow:hidden;
+      }
+      .marquee_list {
+          display:block;
+          position:absolute;
+          top:0;
+          left:0;
+      }
+      .marquee_top {transition:top 0.5s;}
+      .marquee_list li {
+          height:30px;
+          line-height:30px;
+          font-size:14px;
+          padding-left:20px;
+          background: #fff;
+      }
+      .marquee_li span {
+          padding:0 2px;
+      }
+      .red {
+          color:#ff0101;
+      }
+    </style>
+</head>
+<body>
+    <!-- <div id="marquees">
+        <a href="#">链接一</a>
+        <a href="#">链接二</a>
+        <a href="#">链接三</a>
+        <a href="#">链接四</a>
+    </div> -->
+    <!-- <div class="inner-container" id="app">
+        <p class="text" v-for="(text,index) in arr" :key="index">{{text}}</p>
+    </div> -->
+    <div class="vueBox" id="app">
+        <div class="marquee">
+            <div class="marquee_title">
+                <span>最新战报</span>
+            </div>
+            <div class="marquee_box">
+                <ul class="marquee_list" :style="{top: -num + 'px'}" :class="{marquee_top:num}">
+                    <li v-for="(item, index) in marqueeList">
+                        <span>{{item.name}}</span>
+                        <span>在</span>
+                        <span class="red">{{item.city}}</span>
+                        <span>杀敌</span>
+                        <span class="red">{{item.amount}}</span>
+                        <span>万</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+      var app = new Vue({
+          el: "#app",
+          data: {
+              num:0,
+              marqueeList: [
+                  {
+                      name:'1均',
+                      city: '北京',
+                      amount: '10'
+                  },
+                  {
+                      name: '2均',
+                      city: '上海',
+                      amount: '20'
+                  },
+                  {
+                      name: '3均',
+                      city: '武汉',
+                      amount: '30'
+                  }
+              ]
+          },
+          created: function() {
+              this.showMarquee(this.num)
+          },
+          methods: {
+              showMarquee:function (num) {
+                  this.marqueeList.push(this.marqueeList[0]);
+                  var max = this.marqueeList.length;
+                  var that = this;
+                  marqueetimer = setInterval(function() {
+                      num++;
+                      if(num >= max) {
+                          num = 0;
+                      }
+                      that.num = num*30;
+                  },2000)
+              }
+          }
+      })
+    </script>
+</body>
+</html>
